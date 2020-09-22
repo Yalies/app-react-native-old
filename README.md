@@ -1,4 +1,4 @@
-# yaliesapp
+# yalies
 
 An application that uses the YaleStudents API to search for Yalies
 
