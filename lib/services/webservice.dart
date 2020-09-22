@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:yalies/utils/constants.dart';
+import 'package:app/utils/constants.dart';
 import 'dart:convert';
 
 class Resource<T> {
