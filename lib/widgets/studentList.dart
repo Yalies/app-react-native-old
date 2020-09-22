@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:yalies/models/studentModel.dart';
-import 'package:yalies/services/webservice.dart';
+import 'package:app/models/studentModel.dart';
+import 'package:app/services/webservice.dart';
 
 class StudentListState extends State<StudentList> {
   List<StudentModel> _studentModels = List<StudentModel>();
