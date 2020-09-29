@@ -23,13 +23,15 @@ class API {
             "leave": true
         }
     };
-    final msg = jsonEncode(filters);
-    final Response response = await http.post(resource.url,
+    final body = jsonEncode(payload);
+    final Response response = await http.post(
+        resource.url,
         headers: <String, String>{
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + Constants.API_KEY,
         },
-        body: msg);
+        body: body
+    );
 
     if (response.statusCode == 200) {
       return resource.parse(response);
