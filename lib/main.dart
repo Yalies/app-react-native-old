@@ -12,8 +12,7 @@ class App extends StatelessWidget {
         return MaterialApp(
             title: "Yalies",
             theme: ThemeData(primaryColor: Color.fromRGBO(0, 53, 107, 1)),
-            //home: MainWidget()
-            home: StudentList()
+            home: MainWidget()
         );
     }
 }
@@ -38,11 +37,16 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     @override
     Widget build(BuildContext context) {
-        return WebView(
-            initialUrl: 'https://flutter.io',
-            onWebViewCreated: (WebViewController webViewController) {
-                _controller.complete(webViewController);
-            },
+        return Scaffold(
+            appBar: AppBar(
+                title: const Text('Login with CAS'),
+            ),
+            body: WebView(
+                initialUrl: 'https://flutter.io',
+                onWebViewCreated: (WebViewController webViewController) {
+                    _controller.complete(webViewController);
+                },
+            )
         );
     }
 }
