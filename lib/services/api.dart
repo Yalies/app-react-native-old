@@ -12,23 +12,22 @@ class Resource<T> {
   Resource({this.url, this.parse});
 }
 
-class Webservice {
+class API {
   Future<T> load<T>(Resource<T> resource) async {
-    Map data = {
-      "college": ["Grace Hopper", "Franklin"],
-      "year": [2023, 2024],
-      "major": ["Computer Science", "Italian"],
-      "entryway": ["A"],
-      "floor": [4],
-      "suite": [1],
-      "leave": true
-    };
-    final msg = jsonEncode(data);
+    Map payload = {
+        "query": "Victor",
+        "filters": {
+            "college": ["Grace Hopper", "Franklin"],
+            "year": [2023, 2024],
+            "major": ["Computer Science", "Italian"],
+            "leave": true
+        }
+    }
+    final msg = jsonEncode(filters);
     final Response response = await http.post(resource.url,
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=utf-8',
-          'Accept': 'application/json',
-          'Authorization': Constants.API_KEY,
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + Constants.API_KEY,
         },
         body: msg);
 
