@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -11,7 +12,8 @@ class App extends StatelessWidget {
         return MaterialApp(
             title: "Yalies",
             theme: ThemeData(primaryColor: Color.fromRGBO(0, 53, 107, 1)),
-            home: MainWidget()
+            //home: MainWidget()
+            home: StudentList()
         );
     }
 }
@@ -26,12 +28,21 @@ class MainWidget extends StatelessWidget {
     }
 }
 
-class LoginWidget extends StatelessWidget {
+class LoginWidget extends StatefulWidget {
+    @override
+    _LoginWidgetState createState() => _LoginWidgetState();
+}
+
+class _LoginWidgetState extends State<LoginWidget> {
+    Completer<WebViewController> _controller = Completer<WebViewController>();
+
     @override
     Widget build(BuildContext context) {
         return WebView(
             initialUrl: 'https://flutter.io',
-            javascriptMode: JavascriptMode.unrestricted,
+            onWebViewCreated: (WebViewController webViewController) {
+                _controller.complete(webViewController);
+            },
         );
     }
 }
