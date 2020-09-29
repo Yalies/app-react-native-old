@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:app/services/api.dart';
-import 'package:app/utils/constants.dart';
+import 'package:yalies/services/api.dart';
+import 'package:yalies/utils/constants.dart';
 
 class Student {
   final String access_code,

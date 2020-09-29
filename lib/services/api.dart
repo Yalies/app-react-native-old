@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:app/utils/constants.dart';
-import 'dart:convert';
+import 'package:yalies/utils/constants.dart';
 
 class Resource<T> {
   final String url;
