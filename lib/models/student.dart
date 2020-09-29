@@ -32,6 +32,7 @@ class Student {
       this.college,
       this.email,
       this.entryway,
+      this.eli_whitney,
       this.first_name,
       this.floor,
       this.id,

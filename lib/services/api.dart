@@ -22,7 +22,7 @@ class API {
             "major": ["Computer Science", "Italian"],
             "leave": true
         }
-    }
+    };
     final msg = jsonEncode(filters);
     final Response response = await http.post(resource.url,
         headers: <String, String>{
