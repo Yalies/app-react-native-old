@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:app/services/webservice.dart';
+import 'package:app/services/api.dart';
 import 'package:app/utils/constants.dart';
 
 class Student {
