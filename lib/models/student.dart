@@ -21,7 +21,7 @@ class Student {
       last_name,
       image;
   final int floor, id, image_id, suite, upi, year;
-  final bool leave;
+  final bool eli_whitney, leave;
 
   Student(
     {
