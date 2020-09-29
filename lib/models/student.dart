@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:app/services/webservice.dart';
 import 'package:app/utils/constants.dart';
 
-class StudentModel {
+class Student {
   final String access_code,
       address,
       birthday,
@@ -23,8 +23,9 @@ class StudentModel {
   final int floor, id, image_id, suite, upi, year;
   final bool leave;
 
-  StudentModel(
-      {this.access_code,
+  Student(
+    {
+      this.access_code,
       this.address,
       this.birthday,
       this.building_code,
@@ -47,15 +48,18 @@ class StudentModel {
       this.suite,
       this.upi,
       this.year,
-      this.image});
+      this.image
+    }
+  );
 
-  factory StudentModel.fromJson(Map<String, dynamic> json) {
-    return new StudentModel(
+  factory Student.fromJson(Map<String, dynamic> json) {
+    return new Student(
         access_code: json["access_code"],
         address: json["address"],
         birthday: json["birthday"],
         building_code: json["building_code"],
         college: json["college"],
+        eli_whitney: json["eli_whitney"],
         email: json["email"],
         entryway: json["entryway"],
         floor: json["floor"],
@@ -74,16 +78,17 @@ class StudentModel {
         last_name: json["last_name"],
         upi: json["upi"],
         year: json["year"],
-        image: json["image"]);
+        image: json["image"]
+    );
   }
 
-  static Resource<List<StudentModel>> get all {
+  static Resource<List<Student>> get all {
     return Resource(
         url: Constants.API_URL,
         parse: (response) {
           final result = json.decode(response.body);
           Iterable list = result.toList();
-          return list.map((model) => StudentModel.fromJson(model)).toList();
+          return list.map((model) => Student.fromJson(model)).toList();
         });
   }
 }
