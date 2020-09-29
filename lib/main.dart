@@ -8,7 +8,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Yalies.io",
+        title: "Yalies",
         theme: ThemeData(primaryColor: Color.fromRGBO(15, 77, 146, 1)),
         home: StudentList());
   }
