@@ -42,7 +42,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 title: const Text('Login with CAS'),
             ),
             body: WebView(
-                initialUrl: 'https://flutter.io',
+                initialUrl: 'https://secure.its.yale.edu/cas/login',
                 onWebViewCreated: (WebViewController webViewController) {
                     _controller.complete(webViewController);
                 },
