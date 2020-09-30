@@ -13,7 +13,7 @@ class StudentListState extends State<StudentList> {
     }
 
     void _populateStudents() {
-        API().load(Student.all).then((students) => {
+        API().getStudents(Student.all).then((students) => {
             setState(() => {_students = students})
         });
     }
