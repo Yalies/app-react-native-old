@@ -25,7 +25,7 @@ class API {
             },
             body: body
         };
-
+        return (response.statusCode == 200);
     }
 
     Future<T> getStudents<T>(Resource<T> resource) async {
