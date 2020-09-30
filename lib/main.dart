@@ -44,7 +44,6 @@ class _LoginWidgetState extends State<LoginWidget> {
             ),
             body: InAppWebView(
                 initialUrl: 'https://secure.its.yale.edu/cas/login',
-
                 onWebViewCreated: (InAppWebViewController controller) {
                     _controller = controller;
                 },
