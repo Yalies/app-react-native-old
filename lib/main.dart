@@ -1,7 +1,8 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:yalies/widgets/studentList.dart';
 
 void main() => runApp(App());
@@ -33,7 +34,7 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-    Completer<WebViewController> _controller = Completer<WebViewController>();
+    InAppWebViewController _controller;
 
     @override
     Widget build(BuildContext context) {
@@ -41,13 +42,26 @@ class _LoginWidgetState extends State<LoginWidget> {
             appBar: AppBar(
                 title: const Text('Login with CAS'),
             ),
-            body: WebView(
+            body: InAppWebView(
                 initialUrl: 'https://secure.its.yale.edu/cas/login',
-                javascriptMode: JavascriptMode.unrestricted,
-                onWebViewCreated: (WebViewController webViewController) {
-                    _controller.complete(webViewController);
+
+                onWebViewCreated: (InAppWebViewController controller) {
+                    _controller = controller;
                 },
-            )
+                onLoadStart: (InAppWebViewController controller, String url) {
+                    // Listen for URL change
+                    developer.log(url, name: 'my.app.category');
+                    const LOGIN_DESTINATION = 'https://secure.its.yale.edu/cas/login;jsessionid=';
+                    if (url.startsWith(LOGIN_DESTINATION)) {
+                        var jsessionid = url.substring(LOGIN_DESTINATION.length(), url.length());
+                    }
+                },
+                //onLoadStop: (InAppWebViewController controller, String url) async {
+                //    setState(() {
+                //        this.url = url;
+                //    });
+                //},
+            ),
         );
     }
 }
