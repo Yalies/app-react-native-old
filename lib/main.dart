@@ -43,6 +43,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             ),
             body: WebView(
                 initialUrl: 'https://secure.its.yale.edu/cas/login',
+                javascriptMode: JavascriptMode.unrestricted,
                 onWebViewCreated: (WebViewController webViewController) {
                     _controller.complete(webViewController);
                 },
