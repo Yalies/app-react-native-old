@@ -33,7 +33,7 @@ class StudentListState extends State<StudentList> {
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
-                title: Text('Yalies.io'),
+                title: Text('Yalies'),
             ),
             body: ListView.builder(
                 itemCount: _students.length,
