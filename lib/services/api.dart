@@ -13,17 +13,30 @@ class Resource<T> {
 }
 
 class API {
-    Future<T> students
+    Future<T> login(String jsessionid) async {
+        Map payload = {
+            "jsessionid": jsessionid,
+        }
+        final body = jsonEncode(payload);
+        final Response response = await http.post(
+            resource.url,
+            headers: <String, String>{
+                'Content-Type': 'application/json',
+            },
+            body: body
+        };
+
+    }
 
     Future<T> getStudents<T>(Resource<T> resource) async {
         Map payload = {
             "query": "Victor",
             "filters": {
-            "college": ["Grace Hopper", "Franklin"],
-            "year": [2023, 2024],
-            "major": ["Computer Science", "Italian"],
-            "leave": true
-        }
+                "college": ["Grace Hopper", "Franklin"],
+                "year": [2023, 2024],
+                "major": ["Computer Science", "Italian"],
+                "leave": true
+            }
         };
         final body = jsonEncode(payload);
         final Response response = await http.post(
