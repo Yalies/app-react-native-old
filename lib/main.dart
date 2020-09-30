@@ -50,9 +50,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                 onLoadStart: (InAppWebViewController controller, String url) {
                     // Listen for URL change
                     developer.log(url, name: 'my.app.category');
-                    const LOGIN_DESTINATION = 'https://secure.its.yale.edu/cas/login;jsessionid=';
+                    final String LOGIN_DESTINATION = 'https://secure.its.yale.edu/cas/login;jsessionid=';
                     if (url.startsWith(LOGIN_DESTINATION)) {
-                        var jsessionid = url.substring(LOGIN_DESTINATION.length());
+                        var jsessionid = url.substring(LOGIN_DESTINATION.length);
                     }
                 },
                 //onLoadStop: (InAppWebViewController controller, String url) async {

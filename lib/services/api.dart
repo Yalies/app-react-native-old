@@ -13,18 +13,18 @@ class Resource<T> {
 }
 
 class API {
-    Future<T> login(String jsessionid) async {
+    Future<bool> login(String jsessionid) async {
         Map payload = {
             "jsessionid": jsessionid,
-        }
+        };
         final body = jsonEncode(payload);
         final Response response = await http.post(
-            resource.url,
+            "https://yalies.io/auth",
             headers: <String, String>{
                 'Content-Type': 'application/json',
             },
             body: body
-        };
+        );
         return (response.statusCode == 200);
     }
 
